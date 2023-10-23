@@ -1,0 +1,56 @@
+.active{
+    color: #7799ff !important;
+    background-color: #e1e9f1 !important;
+}
+
+.title{
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    padding: 1rem 13%;
+}
+.title img{
+    height: 2rem;
+    width: 2rem;
+}
+.title p{
+    text-transform: uppercase;
+    margin: 0 1rem;
+}
+.body{
+    height: 100%;
+}
+.body .list{
+    list-style: none;
+}
+.body .list{
+    list-style: none;
+}
+.body .list .list_item a{
+    display: flex;
+    align-items: center;
+    padding: 1rem 25%;
+    font-size: 20px;
+    color:#6e768e;
+}
+.body .list .list_item:hover{
+    background-color: rgba(0,0,0,.14);
+}
+.body .list .list_item p{
+    padding:0 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

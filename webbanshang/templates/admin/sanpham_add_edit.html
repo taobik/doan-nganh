@@ -1,0 +1,258 @@
+{% extends 'admin/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin/sanpham_add_edit.css') }}">
+{% endblock %}
+{% block body %}
+{% if sp_edit %}
+{% for i in sp_edit %}
+<form class="sp" action="{{ url_for('admin_edit_sanpham', id = i.id) }}" method="post" enctype="multipart/form-data">
+    <div class="tt_hang">
+        <div class="name">
+            <div class="ten">
+                <div class="form-group">
+                    <div class="title">
+                        <label>Tên sản phẩm:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm..." name="ten_sp"
+                           value="{{ i.Ten }}" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Loại:</label>
+                    </div>
+                    <div class="nhap">
+                        <select>
+                            <option value="">--Loại--</option>
+                            {% for i in loai %}
+                            <option value="{{ i.Ten }}">{{ i.Ten }}</option>
+                            {% endfor %}
+                        </select>
+                        <p>Hoặc</p>
+                        <input type="text" class="form-control" placeholder="Nhập Loại..." name="loai">
+                    </div>
+
+                </div>
+            </div>
+            <div class="num">
+                <div class="form-group">
+                    <div class="title">
+                        <label>Giá nhập:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập giá nhập hàng..." name="gia_nhap"
+                           value="{{ i.GiaNhap }}" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Giá bán:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập muốn bán..."
+                           value="{{ i.GiaBan }}" name="gia_ban" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Số lượng:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập số lượng..."
+                           value="{{ i.SoLuong }}" name="so_luong" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input">
+                <div class="title">
+                    <label>Ảnh:</label>
+                </div>
+                <input type="file" name="anh_cu" value="{{ i.Anh }}" style="display:none;">
+                <input type="file" class="form-control" name="anh" accept=".png, .jpg, .jpeg" multiple>
+            </div>
+            <img src="{{ i.Anh }}" class="img_display">
+        </div>
+    </div>
+    <div class="tt_chitiet">
+        <div class="form-group">
+            <div class="title">
+                <label>Mô tả:</label>
+            </div>
+            <textarea minlength="1" maxlength="250" class="form-control" placeholder="Nhập mô tả..." name="mo_ta"
+                      required>{{ i.MoTa }}</textarea>
+            <div class="num">
+                <p><span>0</span>/250</p>
+            </div>
+        </div>
+        <div class="tt">
+            <div class="1">
+                <div class="form-group">
+                    <div class="title">
+                        <label>Thương hiệu:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập thương hiệu..." name="thuong_hieu"
+                           value="{{ i.ThuongHieu }}" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Màn hình:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập dữ liệu màn hình..." name="man_hinh"
+                           value="{{ i.ManHinh }}" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Hệ điều hành:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập hệ điều hành..."
+                           value="{{ i.HeDieuHanh }}" name="hdh" required>
+                </div>
+            </div>
+            <div class="2">
+                <div class="form-group">
+                    <div class="title">
+                        <label>Chip:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập chip..."
+                           value="{{ i.Chip }}" name="chip" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Ram:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập ram..."
+                           value="{{ i.Ram }}" name="ram" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Dung lượng:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập giá nhập hàng..."
+                           value="{{ i.DungLuong }}" name="duong_luong"
+                           required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Sửa" class="btn">
+</form>
+{% endfor %}
+{% else %}
+<form class="sp" action="{{ url_for('admin_add_sanpham') }}" method="post" enctype="multipart/form-data">
+    <div class="tt_hang">
+        <div class="name">
+            <div class="ten">
+                <div class="form-group">
+                    <div class="title">
+                        <label>Tên sản phẩm:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm..." name="ten_sp" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Loại:</label>
+                    </div>
+                    <div class="nhap">
+                        <select>
+                            <option value="">--Thương hiệu</option>
+                            {% for i in loai %}
+                            <option value="{{ i.Ten }}">{{ i.Ten }}</option>
+                            {% endfor %}
+                        </select>
+                        <p>Hoặc</p>
+                        <input type="text" class="form-control" placeholder="Nhập Loại..." name="loai">
+                    </div>
+
+                </div>
+            </div>
+            <div class="num">
+                <div class="form-group">
+                    <div class="title">
+                        <label>Giá nhập:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập giá nhập hàng..." name="gia_nhap"
+                           required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Giá bán:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập muốn bán..." name="gia_ban" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Số lượng:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập số lượng..." name="so_luong" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input">
+                <div class="title">
+                    <label>Ảnh:</label>
+                </div>
+                <input type="file" class="form-control" name="anh" accept=".png, .jpg, .jpeg" multiple required>
+            </div>
+            <img class="img_display">
+        </div>
+    </div>
+    <div class="tt_chitiet">
+        <div class="form-group">
+            <div class="title">
+                <label>Mô tả:</label>
+            </div>
+            <textarea minlength="1" maxlength="250" class="form-control" placeholder="Nhập mô tả..." name="mo_ta"
+                      required></textarea>
+            <div class="num">
+                <p><span>0</span>/250</p>
+            </div>
+        </div>
+        <div class="tt">
+            <div class="1">
+                <div class="form-group">
+                    <div class="title">
+                        <label>Thương hiệu:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập thương hiệu..." name="thuong_hieu"
+                           required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Màn hình:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập dữ liệu màn hình..." name="man_hinh"
+                           required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Hệ điều hành:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập hệ điều hành..." name="hdh" required>
+                </div>
+            </div>
+            <div class="2">
+                <div class="form-group">
+                    <div class="title">
+                        <label>Chip:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập chip..." name="chip" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Ram:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập ram..." name="ram" required>
+                </div>
+                <div class="form-group">
+                    <div class="title">
+                        <label>Dung lượng:</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập giá nhập hàng..." name="duong_luong"
+                           required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Thêm" class="btn">
+</form>
+{% endif %}
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/sanpham_add_edit.js') }}"></script>
+{% endblock %}}

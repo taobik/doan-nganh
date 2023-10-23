@@ -1,0 +1,33 @@
+.slide{
+    min-width: 3rem !important;
+    max-width: 3rem !important;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma;
+}
+body{
+    min-width:90rem;
+    background-color:white;
+    display: flex;
+    height:100vh;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+.left_contan{
+    min-width: 18rem;
+    max-width: 18rem;
+    overflow:hidden;
+    white-space: nowrap;
+}
+.container{
+    width:100%;
+}
+.container .body{
+    margin: 1rem;
+}

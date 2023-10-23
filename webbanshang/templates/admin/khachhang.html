@@ -1,0 +1,49 @@
+{% extends 'admin/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin/khachhang.css') }}">
+{% endblock %}
+{% block body %}
+<div class="sanpham">
+    <div class="sanpham_title">
+        <p>Khách hàng</p>
+    </div>
+    <div class="body">
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Tên đăng nhập</th>
+                <th>Mật khẩu</th>
+                <th>Ảnh đại diện</th>
+                <th>Vai trò</th>
+                <th>Tình Trạng</th>
+                <th></th>
+            </tr>
+            {% for i in kh %}
+            <tr>
+                <td><p>{{ i.id }}</p></td>
+                <td><p>{{ i.TenDanhNhap }}</p></td>
+                <td><p>{{ i.Matkhau }}</p></td>
+                <td><img src="{{ i.AnhDaiDien }}" alt=""></td>
+                <td><p>{{ i.VaiTro }}</p></td>
+                {% if i.TinhTrang == True %}
+                <td>
+                    <input class="{{ i.id }}" type="checkbox" checked/>
+                </td>
+                {% else %}
+                <td>
+                    <input class="{{ i.id }}" type="checkbox"/>
+                </td>
+                {% endif %}
+                <td>
+                    <a href="{{ url_for('admin_view_khachhang', id = i.id) }}"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="{{ url_for('admin_delete_khachhang', id = i.id) }}"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/khachhang.js') }}"></script>
+{% endblock %}}

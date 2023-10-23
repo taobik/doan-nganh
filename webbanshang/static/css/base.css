@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma;
+}
+body{
+    min-width:88rem;
+    background-color:white;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+.container{
+    margin: 2rem 5%;
+}

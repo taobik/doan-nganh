@@ -1,0 +1,505 @@
+.chosen {
+    border: solid 2px #efb84f !important;
+}
+.tab_chose {
+    background-color:#efb84f !important;
+    color:white !important;
+    display:block !important;
+}
+.tab_active {
+    display:block !important;
+}
+
+.chitiet{
+    display:flex;
+}
+.chitiet >.ttgioithieu{
+    height:100%;
+    width: 100%;
+}
+.chitiet >.ttgioithieu > .thongtin{
+    display:flex;
+    height: 100%;
+    width: 100%;
+}
+.chitiet >.ttgioithieu > .thongtin > .anh{
+    position:relative;
+    width:40%;
+    margin: 0 5%;
+}
+.chitiet >.ttgioithieu > .thongtin > .anh > .chinh{
+
+    width:100%;
+    display:flex;
+    margin:1rem 5%;
+    overflow:hidden;
+}
+.chitiet >.ttgioithieu > .thongtin > .anh > .chinh > .anh_chinh{
+    width: 100%;
+    border-radius: 10px;
+    transition: all 0.3s ease-in 0s;
+}
+.chitiet >.ttgioithieu > .thongtin > .anh > .phu{
+    display:flex;
+    width:90%;
+    margin:1rem auto;
+    padding:1rem auto;
+    height:5rem;
+}
+.chitiet >.ttgioithieu > .thongtin > .anh > .phu > .anh_phu{
+    width:5rem;
+    height:5rem;
+    margin: 0 0.5rem;
+    border-radius:5px;
+    border: solid 1px #ebebeb;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+}
+.chitiet >.ttgioithieu > .thongtin > .anh > .phu > .anh_phu:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+
+.chitiet >.ttgioithieu > .thongtin > .coban{
+    height: 100%;
+    width: 50%;
+    margin:1rem 0;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban > div{
+    margin:1rem 0;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban > .ten{
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban > .gia{
+    font-size: 24px;
+    font-weight: bold;
+    color: #efb84f;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .so_luong{
+    display:flex;
+    font-size: 10px;
+    margin-bottom: 1rem;
+    height: 3rem;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban div > i{
+    padding: 1rem 1rem;
+    color: #efb84f;
+    border: solid 1px #ebebeb;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .so_luong > div{
+    height: 3rem;
+    border-radius:0 !important;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .so_luong > div:hover {
+    cursor:pointer;
+    background-color: #efb84f;
+    transition: all 0.1s linear;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .so_luong > div:hover i {
+    color:white;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .so_luong input{
+    outline: none;
+    font-size: 20px;
+    width: 5rem;
+    text-align: center;
+    border: solid 1px #ebebeb;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban > .form div{
+    height: 3rem;
+    font-size: 0.9rem;
+    border-radius:10px;
+    color: white;
+    border:none;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .button{
+    display:flex;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban > .form a{
+    margin: 0.5rem;
+    display: block;
+    width: 15rem;
+    height: 100%;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban > .form div > p:nth-child(1){
+    text-align:center;
+    text-transform: uppercase;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban > .form div > p:nth-child(2){
+    text-align:center;
+    font-weight: 500;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .them_gio{
+    height: 4rem !important;
+    background-color: #efb84f;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .mua_ngay{
+    height: 4rem !important;
+    background-color: green;
+}
+
+.chitiet >.ttgioithieu > .thongtin > .coban .them_gio:hover{
+    cursor: pointer;
+    background-color: white;
+    color:#efb84f;
+    border: solid 2px #efb84f;
+    transition: all 0.2s linear;
+}
+.chitiet >.ttgioithieu > .thongtin > .coban .mua_ngay:hover{
+    cursor: pointer;
+    background-color: white;
+    color:green;
+    border: solid 2px green;
+    transition: all 0.2s linear;
+}
+.chitiet >.ttgioithieu > .danhgia{
+    padding:2rem 0;
+    padding-right:1rem;
+
+    width:100%;
+}
+.chitiet >.ttgioithieu > .danhgia > .tabs{
+    display:flex;
+    height: 100%;
+    width: 100%;
+    border-bottom: solid 3px #efb84f;
+}
+.chitiet >.ttgioithieu > .danhgia > .tabs > .tab{
+    width:fit-content;
+    font-size:1.5rem;
+    font-weight:500;
+    background-color:white;
+    color:#efb84f;
+    border-radius:5px 5px 0 0;
+    padding: 0.5rem 1rem;
+    transition: all 0.1s linear;
+}
+.chitiet >.ttgioithieu > .danhgia > .tabs > .tab:hover{
+    cursor:pointer;
+}
+.chitiet >.ttgioithieu > .danhgia > .infor{
+    display:none;
+    margin:1rem 0;
+    font-size:1rem;
+}
+.chitiet .ttgioithieu .danhgia .comment{
+    margin-bottom: 1rem;
+}
+.chitiet .ttgioithieu .danhgia .comment .items{
+    display:flex;
+    margin-bottom: 1rem;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .noi_dung{
+    padding: 0 1rem;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .noi_dung .danh_gia{
+    display:flex;
+    color: #efb84f;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .infor{
+    display: block;
+    background-color: rgba(0,0,0,.14);
+    border-radius:5px;
+    width: fit-content;
+    padding:0 1rem;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .name{
+    font-size: 23px;
+    font-weight: bolder;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .text{
+    height: 40%;
+    padding:5px 0;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .thich{
+    margin: 3px 1rem;
+    display: flex;
+    height: 20%;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .thich .thich_button{
+    display: flex;
+}
+.chitiet .ttgioithieu .danhgia .comment .items .thich:hover{
+    cursor:pointer;
+}
+.chitiet .ttgioithieu .danhgia .comment .items div{
+    margin-right: 0.5rem;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan{
+    list-style: none;
+    display:flex;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan li{
+    width: 30%;
+    height:100%;
+    margin:0 1rem;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan li a{
+    display:flex;
+    width: 100%;
+    height:100%;
+    justify-content: center;
+    align-items: center;
+    font-size:15px;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan li{
+    width: 30%;
+    height:100%;
+    margin:0 1rem;
+    border-radius:15px;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .xem_all_bl{
+    border: solid 5px #dec59b;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .xem_all_bl p{
+    color: #dec59b;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .xem_all_bl:hover{
+    background-color: #dec59b;
+    transition: all 0.2s linear;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .xem_all_bl:hover p{
+    color: white;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .viet_bl,
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .bl_dn{
+    background-color: #efb84f;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .viet_bl p,
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .bl_dn p{
+    color: white;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .viet_bl:hover,
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .bl_dn:hover{
+    background-color: white;
+    border: solid 5px #efb84f;
+    transition: all 0.2s linear;
+}
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .viet_bl:hover p,
+.chitiet .ttgioithieu .danhgia .comment .viet_binhluan .bl_dn:hover p{
+    color: #efb84f;
+}
+.chitiet .ttgioithieu .danhgia .comment .o_viet_bl{
+    position: fixed;
+    display:block;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin:auto;
+    background-color: rgba(128,128,120,.14);
+    z-index:99;
+}
+.chitiet .ttgioithieu .danhgia .comment > .infor{
+    position: fixed;
+    display:block;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin: 5rem auto;
+    height:fit-content;
+    width: 40rem;
+    background-color: white;
+    opacity: 1;
+    z-index:100;
+}
+.chitiet .ttgioithieu .danhgia .comment > .infor .title{
+    font-size:35px;
+    font-weight: bolder;
+    text-align:center;
+    padding: 0.5rem 0;
+}
+.chitiet .ttgioithieu .danhgia .comment > .infor .title .img{
+    height: 10rem;
+    width: 10rem;
+    overflow: hidden;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.chitiet .ttgioithieu .danhgia .comment > .infor .danh_gia{
+    display:flex;
+    font-size:35px;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+    color: #efb84f;
+}
+.chitiet .ttgioithieu .danhgia .comment > .infor .viet{
+    width:100%;
+    display:none;
+}
+.chitiet .ttgioithieu .danhgia .comment > .infor .viet textarea{
+    min-height: 6rem;
+    max-height: 6rem;
+    min-width: 95%;
+    max-width: 95%;
+    margin: 1rem;
+    margin-bottom: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+}
+.chitiet .ttgioithieu .danhgia .comment > .infor .viet .dem{
+    margin: 0 1rem;
+}
+.chitiet .ttgioithieu .danhgia .comment > .infor .gui{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    width: 10rem;
+    white-space: nowrap;
+    margin: 1rem auto;
+    background-color: #efb84f;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.chitiet >.ttchitiet{
+    height: 100%;
+    width: 40%;
+}
+.chitiet >.ttchitiet > .thongtinkythuat > .title > p,
+.chitiet >.ttchitiet > .sanphamtuongtu > .title > p{
+    width:fit-content;
+    font-size:1.5rem;
+    font-weight:500;
+    background-color:#efb84f;
+    color:white;
+    border-radius:5px 5px 0 0;
+    padding: 0.5rem 1rem;
+
+}
+.chitiet >.ttchitiet > .thongtinkythuat > .title,
+.chitiet >.ttchitiet > .sanphamtuongtu > .title{
+    border-bottom: solid 3px #efb84f;
+}
+.chitiet >.ttchitiet > .thongtinkythuat > .thongtin > table,
+.chitiet >.ttchitiet > .thongtinkythuat > .thongtin > table tr,
+.chitiet >.ttchitiet > .thongtinkythuat > .thongtin > table td{
+    border: 1px solid #b1b1b1;
+}
+.chitiet >.ttchitiet > .thongtinkythuat > .thongtin > table{
+    margin: 2rem 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+.chitiet >.ttchitiet > .thongtinkythuat > .thongtin > table td{
+    height:5rem;
+    padding: 1rem 1rem;
+}
+
+
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list{
+    height:100%;
+    width:100%;
+    margin: 2rem 0;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list{
+    height:100%;
+    width:100%;
+    margin: 2rem 0;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list:hover{
+    cursor:pointer;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list > .list_item:hover > .img{
+    transform:scale(1.2);
+    overflow:hidden;
+    transition: all 0.2s linear;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list > .list_item:hover > .thong_tin > .ten{
+    transition: all 0.2s linear;
+    color:#efb84f;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list > .list_item{
+    display:flex;
+    height:6rem;
+    margin:1rem;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list > .list_item > .img{
+    width:30%;
+    height:100%;
+    margin: 0 0.5rem;
+    border-radius:5px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list > .list_item > .thong_tin{
+    width:100%;
+    margin: 1rem 1rem;
+    overflow: hidden;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list > .list_item > .thong_tin > .ten{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+.chitiet >.ttchitiet > .sanphamtuongtu > .san_pham_list > .list > .list_item > .thong_tin > .gia{
+    color:#efb84f;
+    margin: 1rem 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+.ttgioithieu > .thongtin > .coban > .form > .button > .thich{
+    height: 100%;
+    font-size: 40px;
+    padding: 0.5rem !important;
+}
+.ttgioithieu > .thongtin > .coban > .form > .button > .thich i{
+    padding: 0.5rem !important;
+}
+
+
+.err{
+    position:fixed;
+    top: 6rem;
+    right: 0;
+    height: 5rem;
+    width: 20rem;
+    margin: 2rem 1rem;
+    border-radius: 10px;
+    box-shadow: -3px 8px 26px 2px #888888;
+    background-color:white;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(120%);
+    transition: 1s;
+}
+.errback{
+    transform: translate(0%);
+}
+

@@ -1,0 +1,121 @@
+{% extends 'layout/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/tatcasanpham.css') }}">
+{% endblock %}
+{% block body %}
+<div class="body">
+    <div class="cate">
+        <h4 class="title">
+            danh mục
+        </h4>
+        <ul class="cate_list">
+            {% for i in loai %}
+            <li><a href="{{ url_for('sanpham', cate = i.id)}}">{{ i.Ten }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="san_pham">
+        <div class="title">
+            <h4>
+                sản phẩm
+            </h4>
+        </div>
+        <div class="loc">
+            <div class="bo_loc">
+                <i class="fa-solid fa-filter"></i>
+                <p>Bộ lọc</p>
+            </div>
+            <div class="loc_list">
+                <div class="loc_item loc_thieu">
+                    <label for="thieu">Thương hiệu:</label>
+                    <select id="thieu">
+                        <option value="">--Thương hiệu--</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Acer">Acer</option>
+                        <option value="Apple">Apple</option>
+                        <option value="BeFit">BeFit</option>
+                    </select>
+                </div>
+                <div class="loc_item loc_hdh">
+                    <label for="hdh">Hệ điều hành:</label>
+                    <select id="hdh">
+                        <option value="">--Hệ điều hành--</option>
+                        <option value="android">Android</option>
+                        <option value="Windows">Windows</option>
+                        <option value="ios">IOS</option>
+                        <option value="ipados">iPadOS</option>
+                    </select>
+                </div>
+                <div class="loc_item loc_ram">
+                    <label for="ram">Ram:</label>
+                    <select id="ram">
+                        <option value="">--Ram--</option>
+                        <option value="4GB">4GB</option>
+                        <option value="8GB">8GB</option>
+                        <option value="16GB">16GB</option>
+                        <option value="32GB">32GB</option>
+                    </select>
+                </div>
+                <div class="loc_item loc_dungluong">
+                    <label for="dungluong">Dung lượng:</label>
+                    <select id="dungluong">
+                        <option value="">--Dung lượng--</option>
+                        <option value="32GB">32GB</option>
+                        <option value="64GB">64GB</option>
+                        <option value="128GB">128GB</option>
+                        <option value="256GB">256GB</option>
+                        <option value="512GB">512GB</option>
+                    </select>
+                </div>
+                <a href="{{ url_for('sanpham_loc') }}" class="loc_item loc_button">Lọc</a>
+            </div>
+        </div>
+        <div class="san_pham_list">
+            {% if spl %}
+            {% for i in spl %}
+            <a href="{{ url_for('chitiet', id = i[0][0])}}">
+                <div class="san_pham_list_item">
+                    <div class="img"
+                         style="background-image: url({{ i[0][4] }});"></div>
+                    <div class="chi_tiet">
+                        <p>Xem chi tiết</p>
+                    </div>
+                    <div class="p">
+                        <p class="ten">{{ i[0][1] }}</p>
+                        <p class="gia">{{ i[0][2] }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% else %}
+            {% for i in sp %}
+            <a href="{{ url_for('chitiet', id = i.id)}}">
+                <div class="san_pham_list_item">
+                    <div class="img"
+                         style="background-image: url({{ i.Anh }});"></div>
+                    <div class="chi_tiet">
+                        <p>Xem chi tiết</p>
+                    </div>
+                    <div class="p">
+                        <p class="ten">{{ i.Ten }}</p>
+                        <p class="gia">{{ i.GiaBan }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="trang">
+            {% for i in range(li) %}
+            <div class="num">
+                <p>{{ i+1 }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/tatcasanpham.js') }}"></script>
+{% endblock %}}

@@ -1,0 +1,123 @@
+{% extends 'admin/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin/khachhang_view.css') }}">
+{% endblock %}
+{% block body %}
+<div class="main">
+    <div class="tab">
+        <div class="tab_item 1 thong_tin">
+            <p>Thông tin khách hàng</p>
+        </div>
+        <div class="tab_item 2 binh_luan">
+            <p>Bình luận của khách hàng</p>
+        </div>
+    </div>
+    <div class="body_tab">
+        <div class="body_tab_list 1 thong_tin_tab">
+            <div>
+                <div class="thong_tin">
+                    {% for i in kh %}
+                    <table>
+                        <tr>
+                            <td>Tên đăng nhập</td>
+                            <td>{{ i.TenDanhNhap }}</td>
+                        </tr>
+                        <tr>
+                            <td>Mật khẩu</td>
+                            <td>{{ i.Matkhau }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ảnh</td>
+                            <td><img style="height: 5rem;" src="{{ i.AnhDaiDien }}" alt=""></td>
+                        </tr>
+                        <tr>
+                            <td>Vai trò</td>
+                            <td>{{ i.VaiTro }}</td>
+                        </tr>
+                        <tr>
+                            <td>Họ</td>
+                            <td>{{ i.Ho }}</td>
+                        </tr>
+                        <tr>
+                            <td>Tên</td>
+                            <td>{{ i.Ten }}</td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td>{{ i.DiaChi }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{ i.Email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td>{{ i.SDT }}</td>
+                        </tr>
+                    </table>
+                    {% endfor %}
+                </div>
+                <div class="thong_ke">
+                    <canvas id="bieu_do1"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="body_tab_list 2 binh_luan_tab">
+            <div class="infor comment">
+                {% if bl %}
+                {% for i in bl %}
+                <div class="items">
+                    <div class="img" style="background-image:url({{ i.AnhDaiDien }})"></div>
+                    <div class="noi_dung">
+                        <div class="infor">
+                            <div class="name">
+                                <p>{{ i.Ho }} {{ i.Ten }} <span style="font-size:10px;">(đã đánh giá ở sản phẩm có id là {{ i.id_sp }})</span></p>
+                            </div>
+                            <div class="danh_gia {{ i.DanhGia }} {{ i.id }}">
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <div class="text {{ i.id }}">
+                                <p>{{ i.NoiDung }}</p>
+                            </div>
+                        </div>
+                        <div class="thich">
+                            <div class="thoi_gian">{{ i.NgayTao }}</div>
+                            <div style="color: #7799fc" class="xoa {{ i.id }}">
+                                <p>Xóa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>khách hàng chưa đánh giá ở sản phẩm nào</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</div>
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/khachhang_view.js') }}"></script>
+<script>
+    let data1 = [], labels1=["1","2","3","4","5","6","7","8","9","10","11","12"], color1 = [];
+    {% for i in mua %}
+    data1.push({{ i }})
+
+    r = Math.random()*255
+    g = Math.random()*255
+    b = Math.random()*255
+
+    color1.push(`rgba(${r},${g},${b},0.7)`)
+    {% endfor %}
+    window.onload = function() {
+        chart1(labels1, data1, color1)
+    }
+
+</script>
+{% endblock %}}

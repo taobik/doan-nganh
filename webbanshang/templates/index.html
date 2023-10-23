@@ -1,0 +1,215 @@
+{% extends 'layout/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<style>
+.err{
+    background-color: {{ color }}
+}
+</style>
+{% endblock %}
+{% block body %}
+{% if err_msg %}
+<div class="err">
+    <p>{{ err_msg }}</p>
+</div>
+{% endif %}
+<div class="banner-top">
+    <div class="banner-top-item">
+        <img class="image"
+             src="https://res.cloudinary.com/dascseee2/image/upload/v1695537726/ef8083bfe79088dc00bd8eca9c821cd5_tohga7.jpg"
+             alt="">
+        <img class="image"
+             src="https://res.cloudinary.com/dascseee2/image/upload/v1695545513/download_1__auto_x2_lnxffb.jpg" alt="">
+        <img class="image"
+             src="https://res.cloudinary.com/dascseee2/image/upload/v1695545442/download_auto_x2_qpd6cz.jpg" alt="">
+    </div>
+    <div class="arrow left">
+        <i class="fa-solid fa-arrow-left"></i>
+    </div>
+    <div class="arrow right">
+        <i class="fa-solid fa-arrow-right"></i>
+    </div>
+</div>
+<div class="san_pham_moi">
+    <div class="title"><p>Sản phẩm mới</p></div>
+    <div id="nod" class="san_pham_list">
+        {% for i in sp %}
+        <a href="{{ url_for('chitiet', id = i.id)}}">
+            <div class="san_pham_list_item">
+                <div class="img" style="background-image: url({{ i.Anh }});"></div>
+                <div class="chi_tiet">
+                    <p>Xem chi tiết</p>
+                </div>
+                <div class="p">
+                    <p class="ten">{{ i.Ten }}</p>
+                    <p class="gia">{{ i.GiaBan }}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="arrow_sp left">
+        <i class="fa-solid fa-arrow-left"></i>
+    </div>
+    <div class="arrow_sp right">
+        <i class="fa-solid fa-arrow-right"></i>
+    </div>
+</div>
+<div class="tab_sp">
+    <ul class="tab">
+        <li><p>Điện thoại</p></li>
+        <li><p>Máy tính</p></li>
+        <li><p>Máy tính bảng</p></li>
+    </ul>
+    <div class="sp">
+        <div class="sp_list dt">
+            <div class="list">
+                <div class="ads">
+                    <div class="img"
+                         style="background-image: url(https://res.cloudinary.com/dascseee2/image/upload/v1696078837/download_2_dc1ict.jpg);">
+                    </div>
+                </div>
+                {% for i in sp1 %}
+                <a href="{{ url_for('chitiet', id = i.id)}}">
+                    <div class="san_pham_list_item">
+                        <div class="img" style="background-image: url({{ i.Anh }});"></div>
+                        <div class="chi_tiet">
+                            <p>Xem chi tiết</p>
+                        </div>
+                        <div class="p">
+                            <p class="ten">{{ i.Ten }}</p>
+                            <p class="gia">{{ i.GiaBan }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="sp_list lt">
+            <div class="list">
+                <div class="ads">
+                    <div class="img"
+                         style="background-image: url(https://res.cloudinary.com/dascseee2/image/upload/v1696079950/zyro-image_qxqxib.jpg);">
+                    </div>
+                </div>
+                {% for i in sp2 %}
+                <a href="{{ url_for('chitiet', id = i.id)}}">
+                    <div class="san_pham_list_item">
+                        <div class="img" style="background-image: url({{ i.Anh }});"></div>
+                        <div class="chi_tiet">
+                            <p>Xem chi tiết</p>
+                        </div>
+                        <div class="p">
+                            <p class="ten">{{ i.Ten }}</p>
+                            <p class="gia">{{ i.GiaBan }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="sp_list mtb">
+            <div class="list">
+                <div class="ads">
+                    <div class="img"
+                         style="background-image: url(https://res.cloudinary.com/dascseee2/image/upload/v1696080331/images_1_ovhcy8.jpg);">
+                    </div>
+                </div>
+                {% for i in sp3 %}
+                <a href="{{ url_for('chitiet', id = i.id)}}">
+                    <div class="san_pham_list_item">
+                        <div class="img" style="background-image: url({{ i.Anh }});"></div>
+                        <div class="chi_tiet">
+                            <p>Xem chi tiết</p>
+                        </div>
+                        <div class="p">
+                            <p class="ten">{{ i.Ten }}</p>
+                            <p class="gia">{{ i.GiaBan }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hot">
+    <div class="title">
+        <p>TUẦN LỄ SMARTWATCH: CHỈ TỪ 440.000Đ</p>
+    </div>
+    <div class="banner">
+        <a href="#"><img class="banner_item"
+                         src="https://res.cloudinary.com/dascseee2/image/upload/v1696088148/Desk-40.5x-380x200_ugmxrl.webp"
+                         alt=""></a>
+        <a href="#"><img class="banner_item"
+                         src="https://res.cloudinary.com/dascseee2/image/upload/v1696088148/Desk-10.5x-380x200_azesbd.webp"
+                         alt=""></a>
+        <a href="#"><img class="banner_item"
+                         src="https://res.cloudinary.com/dascseee2/image/upload/v1696088148/Desk-20.5x-380x200_1_sdfjuu.webp"
+                         alt=""></a>
+        <a href="#"><img class="banner_item"
+                         src="https://res.cloudinary.com/dascseee2/image/upload/v1696088148/Desk-30.5x-380x200_rggro3.webp"
+                         alt=""></a>
+    </div>
+    <div class="sp_list">
+        {% for i in sp4 %}
+        <a href="{{ url_for('chitiet', id = i.id)}}">
+            <div class="san_pham_list_item">
+                <div class="img" style="background-image: url({{ i.Anh }});"></div>
+                <div class="chi_tiet">
+                    <p>Xem chi tiết</p>
+                </div>
+                <div class="p">
+                    <p class="ten">{{ i.Ten }}</p>
+                    <p class="gia">{{ i.GiaBan }}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="xemthem">
+        <a href="{{ url_for('sanpham', cate = 4)}}">
+            <p>
+                Xem thêm sản phẩm
+            </p>
+        </a>
+    </div>
+</div>
+<div class="xuhuong">
+    <div class="title">xu hướng mua sắm</div>
+    <ul>
+        <li>
+            <a href="{{ url_for('sanpham', cate = 1)}}">
+                <div class="img"
+                     style="background-image: url(https://res.cloudinary.com/dascseee2/image/upload/v1696146584/ms_banner_img1_cujrye.png);"></div>
+                <div class="content">Điện thoại</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('sanpham', cate = 2)}}">
+                <div class="img"
+                     style="background-image: url(https://res.cloudinary.com/dascseee2/image/upload/v1696147318/d506ed83906212cb4aa3fdd7eeca2a4a_oy5x8f.jpg);"></div>
+                <div class="content">Laptop</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('sanpham', cate = 3)}}">
+                <div class="img"
+                     style="background-image: url(https://res.cloudinary.com/dascseee2/image/upload/v1696147318/_iPadPros_ckyvhl.png);"></div>
+                <div class="content">Máy tính bảng</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('sanpham', cate = 4)}}">
+                <div class="img"
+                     style="background-image: url(https://res.cloudinary.com/dascseee2/image/upload/v1696147318/Timex-Digital_800x390_Banner_vm3guc.jpg);"></div>
+                <div class="content">Đồng hồ</div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}}

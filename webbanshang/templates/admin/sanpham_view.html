@@ -1,0 +1,151 @@
+{% extends 'admin/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin/sanpham_view.css') }}">
+{% endblock %}
+{% block body %}
+<div class="main">
+    <div class="tab">
+        <div class="tab_item 1 thong_tin">
+            <p>Thông tin sản phẩm</p>
+        </div>
+        <div class="tab_item 2 binh_luan">
+            <p>Bình luận của sản phẩm</p>
+        </div>
+    </div>
+    <div class="body_tab">
+        <div class="body_tab_list 1 thong_tin_tab">
+            <div>
+                <div class="thong_tin">
+                    {% for i in sp %}
+                    <a class="sua" href="{{ url_for('admin_edit_sanpham', id = i.id) }}">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <p>Sửa</p>
+                    </a>
+                    <table>
+                        <tr>
+                            <td>Tên</td>
+                            <td>{{ i.Ten }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ảnh</td>
+                            <td><img style="height: 5rem;" src="{{ i.Anh }}" alt=""></td>
+                        </tr>
+                        <tr>
+                            <td>Giá Nhập</td>
+                            <td>{{ i.GiaNhap }}</td>
+                        </tr>
+                        <tr>
+                            <td>Giá bán</td>
+                            <td>{{ i.GiaBan }}</td>
+                        </tr>
+                        <tr>
+                            <td>Số lượng</td>
+                            <td>{{ i.SoLuong }}</td>
+                        </tr>
+                        <tr>
+                            <td>Mô tả</td>
+                            <td>{{ i.MoTa }}</td>
+                        </tr>
+                        <tr>
+                            <td>Thương hiệu</td>
+                            <td>{{ i.ThuongHieu }}</td>
+                        </tr>
+                        <tr>
+                            <td>Màn hình</td>
+                            <td>{{ i.ManHinh }}</td>
+                        </tr>
+                        <tr>
+                            <td>Hệ điều hành</td>
+                            <td>{{ i.HeDieuHanh }}</td>
+                        </tr>
+                        <tr>
+                            <td>Chip</td>
+                            <td>{{ i.Chip }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ram</td>
+                            <td>{{ i.Ram }}</td>
+                        </tr>
+                        <tr>
+                            <td>Dung lượng</td>
+                            <td>{{ i.DungLuong }}</td>
+                        </tr>
+                    </table>
+                    {% endfor %}
+                </div>
+                <div class="thong_ke">
+                    <canvas id="bieu_do1"></canvas>
+                    <canvas id="bieu_do2"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="body_tab_list 2 binh_luan_tab">
+            <div class="infor comment">
+                {% if bl %}
+                {% for i in bl %}
+                <div class="items">
+                    <div class="img" style="background-image:url({{ i.AnhDaiDien }})"></div>
+                    <div class="noi_dung">
+                        <div class="infor">
+                            <div class="name">
+                                <p>{{ i.Ho }} {{ i.Ten }}</p>
+                            </div>
+                            <div class="danh_gia {{ i.DanhGia }} {{ i.id }}">
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <div class="text {{ i.id }}">
+                                <p>{{ i.NoiDung }}</p>
+                            </div>
+                        </div>
+                        <div class="thich">
+                            <div class="thoi_gian">{{ i.NgayTao }}</div>
+                            <div style="color: #7799fc" class="xoa {{ i.id }}">
+                                <p>Xóa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>Sản phẩm chưa có đánh giá</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</div>
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/sanpham_view.js') }}"></script>
+<script>
+    let data1 = [], labels1=["1","2","3","4","5","6","7","8","9","10","11","12"], color1 = [];
+    {% for i in mua %}
+    data1.push({{ i }})
+
+    r = Math.random()*255
+    g = Math.random()*255
+    b = Math.random()*255
+
+    color1.push(`rgba(${r},${g},${b},0.7)`)
+    {% endfor %}
+    let data2 = [], labels2=["sản phẩm", "sản phẩm cùng loại"], color2 = [];
+    {% for i in mua_loai %}
+    data2.push({{ i }})
+
+    r = Math.random()*255
+    g = Math.random()*255
+    b = Math.random()*255
+
+    color2.push(`rgba(${r},${g},${b},0.7)`)
+    {% endfor %}
+    window.onload = function() {
+        chart1(labels1, data1, color1)
+        chart2(labels2, data2, color2)
+    }
+
+</script>
+{% endblock %}}

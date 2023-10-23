@@ -1,0 +1,121 @@
+.sp{
+    margin: 0 5rem;
+}
+.sp .tt_hang,
+.sp .tt_chitiet{
+    display: flex;
+    justify-content: space-between;
+}
+.sp .tt_hang .name,
+.sp .tt_chitiet .name{
+    width:50%;
+}
+.sp .tt_hang .name .ten{
+    display: flex;
+}
+.sp .tt_hang .name .ten .nhap{
+    display: flex;
+}
+.sp .tt_hang .name .ten .nhap select{
+    width: 100%;
+}
+.sp .tt_hang .name .ten .nhap p{
+    padding: 0.5rem 0;
+    margin: 0 1rem;
+}
+.sp .tt_hang .num,
+.sp .tt_chitiet .num{
+    display: flex;
+}
+.sp .tt_hang .name .form-group{
+    padding: 1rem;
+    width:100%;
+}
+.sp .tt_hang .title,
+.sp .tt_chitiet .title{
+    height: 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 2rem;
+}
+.sp .tt_hang .name .title label,
+.sp .tt_chitiet .title label{
+    color: rgba(0,0,0,.70);
+}
+.sp .tt_hang .name input,
+.sp .tt_chitiet input{
+    width: 100%;
+    height: 2rem;
+    padding: 0 1rem;
+    outline: solid 1px rgba(0,0,0,.50);
+    border: none;
+    border-radius: 5px;
+}
+.sp .tt_hang > .form-group{
+    width: 50%;
+}
+.sp .tt_hang > .form-group .input{
+    width: 50%;
+    display: flex;
+    color: rgba(0,0,0,.70);
+    margin: 0 1rem;
+    padding: 1rem;
+}
+.sp .tt_hang > .form-group .title{
+    width: fit-content;
+}
+.sp .tt_hang > .form-group input{
+    padding: 0 1rem;
+}
+.sp .tt_hang > .form-group .img_display{
+    margin: 0 2rem;
+    height: 10rem;
+}
+.sp .tt_chitiet{
+    margin: 0 1rem;
+}
+.sp .tt_chitiet .form-group{
+    width: 50%;
+}
+.sp .tt_chitiet .tt{
+    display: flex;
+    width: 50%;
+}
+.sp .tt_chitiet .tt > div{
+    margin: 0 1rem;
+    width: 100%;
+}
+.sp .tt_chitiet .tt > div .form-group{
+    width: 100%;
+}
+.sp .tt_chitiet > .form-group {
+    padding-right: 2rem;
+}
+.sp .tt_chitiet > .form-group textarea{
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 15rem;
+    min-height: 15rem;
+    border-radius: 15px;
+    padding: 1rem;
+    outline: none;
+}
+.sp > input{
+    margin: 1rem;
+    height: 3rem;
+    width: 5rem;
+    border-radius: 5px;
+    background-color: green;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

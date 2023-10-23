@@ -1,0 +1,116 @@
+.chose{
+    background-color:#7799fc;
+    color: white;
+    transition: down 0.3s linear;
+}
+.main{
+    margin: 3rem 2rem;
+}
+.main .tab{
+    display:flex;
+    margin: 0 1rem;
+    border-bottom: solid 1px #7799fc;
+}
+.main .tab div{
+    height: 2rem;
+    padding:0 1rem;
+    border: solid 1px #7799fc;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+.main .body_tab_list{
+    display:flex;
+    margin: 2rem 0;
+}
+.main .body_tab .thong_tin_tab > div{
+    display:flex;
+}
+.main .body_tab_list > div{
+    margin: 0 1rem;
+}
+.main .body_tab table,
+.main .body_tab table tr,
+.main .body_tab table td{
+    border: 1px solid #b1b1b1;
+}
+.main .body_tab table{
+    margin: 2rem 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+.main .body_tab table td{
+    height:5rem;
+    padding: 1rem 1rem;
+}
+.main .body_tab .sua{
+    display: flex;
+    font-size: 20px;
+    height: 2.5rem;
+    width: 5rem;
+    margin-left:2rem;
+    margin-top:2rem;
+    padding: 0.5rem 0.7rem;
+    background-color: green;
+    color: (0,0,0,.14);
+}
+.main .body_tab .thong_tin_tab .thong_ke{
+    width: 60%;
+    margin: 5rem 2rem;
+}
+
+
+.main .body_tab .body_tab_list .comment .items .name{
+    font-size: 23px;
+    font-weight: bolder;
+}
+.main .body_tab .body_tab_list .comment{
+    margin-bottom: 1rem;
+}
+.main .body_tab .body_tab_list .comment .items{
+    display:flex;
+    margin-bottom: 1rem;
+}
+.main .body_tab .body_tab_list .comment .items .img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.main .body_tab .body_tab_list .comment .items .noi_dung{
+    padding: 0 1rem;
+}
+.main .body_tab .body_tab_list .comment .items .noi_dung .danh_gia{
+    display:flex;
+    color: #efb84f;
+}
+.main .body_tab .body_tab_list .comment .items .infor{
+    display: block;
+    background-color: rgba(0,0,0,.14);
+    border-radius:5px;
+    width: fit-content;
+    padding:0 1rem;
+}
+.main .body_tab .body_tab_list .comment .items .name{
+    font-size: 23px;
+    font-weight: bolder;
+}
+.main .body_tab .body_tab_list .comment .items .text{
+    height: 40%;
+    padding:5px 0;
+}
+.main .body_tab .body_tab_list .comment .items .thich{
+    margin: 3px 1rem;
+    display: flex;
+    height: 20%;
+}
+.main .body_tab .body_tab_list .comment .items .thich .thich_button{
+    display: flex;
+}
+.main .body_tab .body_tab_list .comment .items .thich:hover{
+    cursor:pointer;
+}
+.main .body_tab .body_tab_list .comment .items div{
+    margin-right: 0.5rem;
+}

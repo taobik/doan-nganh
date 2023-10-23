@@ -1,0 +1,281 @@
+{% extends 'layout/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/thongtintaikhoan.css') }}">
+{% endblock %}
+{% block body %}
+<div class="body">
+    <div class="body__list">
+        <div class="body__list__taikhoan">
+            <img class="body__list__taikhoan__img"
+                 src="{{ user.AnhDaiDien }}"
+                 alt="">
+            <div class="body__list__taikhoan__p"><p>xin chào</p></div>
+        </div>
+        <div class="body__list__item">
+            <ul>
+                <li>
+                    <i class="fa-regular fa-user"></i>
+                    <p>Tài khoản của tôi</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p>Đơn hàng</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <p>Lịch sử mua hàng</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-heart"></i>
+                    <p>Yêu thích</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form method="post" action="{{ url_for('thongtintaikhoan') }}" enctype="multipart/form-data" style="width: 100%;">
+        <div class="body__main">
+            <div class="body__main__taikhoan">
+                <div class="body__main__taikhoan__title">
+                    <p>Hồ sơ của tôi</p>
+                </div>
+
+                <div class="body__main__taikhoan__infor">
+                    <div class="body__main__taikhoan__infor__infor">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="Tendn">Tên đăng nhập</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="{{ user.TenDanhNhap }}" id="Tendn"
+                                           name="Tendn" required disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="pasw">Mật khẩu</label>
+                                </td>
+                                <td>
+                                    <input type="password" class="form-control" value="{{ user.Matkhau }}" id="pasw"
+                                           name="pasw" required>
+                                    <div>
+                                        <i class="fa-solid fa-eye"></i>
+                                        <i class="fa-solid fa-eye-slash"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="Ho">Họ</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="{{ user.Ho }}" id="Ho" name="Ho"
+                                           required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="Ten">Tên</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="{{ user.Ten }}" id="Ten" name="Ten"
+                                           required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="DiaChi">Địa chỉ</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="{{ user.DiaChi }}" id="DiaChi"
+                                           name="DiaChi" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="Email">Email</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="{{ user.Email }}" id="Email"
+                                           name="Email" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="SDT">Số điện thoại</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="{{ user.SDT }}" id="SDT" name="SDT"
+                                           required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label></label>
+                                </td>
+                                <td class="body__main__taikhoan__infor__infor__save">
+                                    <button type="submit" class="form-control"
+                                            value="" id="btn" name="btn">Lưu
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="body__main__taikhoan__infor__img">
+                        <div>
+                            <img class="body__main__taikhoan__infor__img__img"
+                                 src="{{ user.AnhDaiDien }}"
+                                 alt="">
+                            <label for="avatar" style="display:none">Anh</label>
+                            <input type="file" class="form-control" id="avatar" name="avatar" value="Chọn ảnh">
+                            <!--                        <div class="body__main__taikhoan__infor__img__update"><p>Chọn ảnh</p></div>-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="body__main__donhang">
+                <div class="body__main__taikhoan">
+                    <div class="body__main__donhang__title">
+                        <p>Đơn hàng</p>
+                    </div>
+                    <div class="body__main__donhang__body">
+                        {% if dh %}
+                        {% for i in dh %}
+                        <div class="body__main__donhang__body__list">
+                            <div class="img"
+                                 style="background-image:url({{ i.Anh }});"></div>
+                            <div class="Ten">
+                                <p>{{ i.Ten }}</p>
+                                <p>{{ i.GiaBan }}</p>
+                            </div>
+                            <div class="so_luong">
+                                <div class="tru {{ i.id }}">
+                                    <i class="fa-solid fa-minus"></i>
+                                </div>
+                                <input type="text" name="gt" class="gt" value="{{ i.sanpham }}"
+                                       style="display:none;">
+                                <input type="text" name="amout_so" class="amout_so {{ i.id }}" value="{{ i.SoLuong }}">
+                                <div class="cong {{ i.id }}">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="gia">
+                                <p>Tổng: </p>
+                                <p></p>
+                            </div>
+                            <a href="{{ url_for('xoa_hang', id_sp = i.sanpham ) }}" class="xoa">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <p><i>Chưa có sản phẩm nào trong giỏ</i></p>
+                        {% endif %}
+                    </div>
+                    <div class="tong">
+                        <div>
+                            <p>Tổng sản phẩm: <span>0đ</span></p>
+                            <p>Tổng thanh toán: <span>0đ</span></p>
+                        </div>
+                        {% if dh %}
+                        <div class="thanh_toan">Thanh toán</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="body__main__lichsu">
+                <div class="body__main__taikhoan">
+                    <div class="body__main__donhang__title">
+                        <p>Lịch sử mua hàng</p>
+                    </div>
+                    <div class="body__main__donhang__body">
+                        {% if lsdh %}
+                        {% for i in lsdh %}
+                        <div class="body__main__donhang__body__list">
+                            <div class="Ten">
+                                <p>Ngày thanh toán</p>
+                                <p>{{ i.NgayTao }}</p>
+                            </div>
+                            <div class="gia">
+                                <p style="color:black;">Trạng thái: <span style="color:#efb84f;">
+                                    {% if i.TrangThai == True %}
+                                    Đã thanh toán
+                                    {% else %}
+                                    Chưa thanh toán
+                                    {% endif %}
+                                </span></p>
+                                <p style="color:black;">Tổng: <span style="color:#efb84f;">{{ i.TongGia }}</span></p>
+                            </div>
+                            <a href="{{ url_for('xoa_ls', id_sp = i.id) }}" class="xoa">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <p><i>Chưa có lịch sử mua hàng nào</i></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="body__main__yeuthich">
+                <div class="body__main__taikhoan">
+                    <div class="body__main__donhang__title">
+                        <p>Yêu thích</p>
+                    </div>
+                    <div class="body__main__donhang__body" style="width: 60%;">
+                        {% if tim %}
+                        {% for i in tim %}
+                        <div class="body__main__donhang__body__list">
+                            <div class="img"
+                                 style="background-image:url({{ i.Anh }});"></div>
+                            <div class="Ten">
+                                <p>{{ i.Ten }}</p>
+                                <p>{{ i.GiaBan }}</p>
+                            </div>
+                                <a href="{{ url_for('chitiet', id = i.id ) }}" class="xoa">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <p><i>Chưa có sản phẩm yêu thích</i></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="xacnhan_thanhtoan">
+    <div class="xacnhan">
+        <div class="title">
+            <p>Xác nhận thanh toán</p>
+        </div>
+        <div class="thongtin">
+            <div class="tt dc">
+                <p>Địa chỉ giao hàng: </p>
+                <input type="text" value="{{ user.DiaChi }}">
+            </div>
+            <div class="tt sdt">
+                <p>Số điện thoại nhận hàng: </p>
+                <input type="text" value="{{ user.SDT }}">
+            </div>
+            <div class="tt ssp">
+                <p>Số sản phẩm: </p>
+                <p>12343434</p>
+            </div>
+            <div class="tt ttien">
+                <p>Tổng tiền: </p>
+                <p>12343434</p>
+            </div>
+            <div class="btn">
+                <a href="{{ url_for('thongtintaikhoan') }}" class="thanh_toan {{current_user.id}}"><p>Xác nhận</p></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/thongtintaikhoan.js') }}"></script>
+{% endblock %}}

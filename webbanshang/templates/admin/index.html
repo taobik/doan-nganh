@@ -1,0 +1,90 @@
+{% extends 'admin/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin/index.css') }}">
+{% endblock %}
+{% block body %}
+<div class="body">
+    <div class="doanhthu">
+        <div class="tong tongdoanhthu">
+            <div class="title">
+                <p>Tổng doanh thu</p>
+            </div>
+            <div class="num">
+                <p>{{ "{:0,.0f}".format(kq[0]) }} VNĐ</p>
+            </div>
+        </div>
+        <div class="tong doanhthunam">
+            <div class="title">
+                <p>Tổng doanh thu năm</p>
+            </div>
+            <div class="num">
+                <p>{{ "{:0,.0f}".format(kq[1]) }} VNĐ</p>
+            </div>
+        </div>
+        <div class="tong doanhthuthang">
+            <div class="title">
+                <p>Tổng doanh thu tháng</p>
+            </div>
+            <div class="num">
+                <p>{{ "{:0,.0f}".format(kq[2]) }} VNĐ</p>
+            </div>
+        </div>
+    </div>
+    <div class="bieudo">
+        <canvas id="bieu_do1"></canvas>
+    </div>
+    <div class="top">
+        <div class="top_table khach_hang">
+            <p>Top doanh thu tháng</p>
+            <table>
+                <tr>
+                    <th>Tên</th>
+                    <th>Tổng</th>
+                </tr>
+                {% for i in top_kh %}
+                <tr>
+                    <td><p>{{ i.ten}}</p></td>
+                    <td><p>{{ i.dt }}</p></td>
+                    {% endfor %}
+            </table>
+        </div>
+        <div class="top_table san_pham">
+            <p>Top sản phẩm ban chạy</p>
+            <table>
+                <tr>
+                    <th>Tên</th>
+                    <th>Tổng</th>
+                </tr>
+                {% for i in top_sp %}
+                <tr>
+                    <td><p>{{ i.ten}}</p></td>
+                    <td><p>{{ i.dt }}</p></td>
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/index.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let data1 = [], labels1=[], color1 = [];
+    {% for il in dtthl %}
+    data1.push('{{ il }}')
+
+    r = Math.random()*255
+    g = Math.random()*255
+    b = Math.random()*255
+
+    color1.push(`rgba(${r},${g},${b},0.7)`)
+    {% endfor %}
+    {% for i in dtthdt %}
+    labels1.push({{ i }})
+    {% endfor %}
+    window.onload = function() {
+        chart1(data1,labels1, color1)
+    }
+
+</script>
+{% endblock %}}

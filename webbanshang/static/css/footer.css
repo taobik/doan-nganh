@@ -1,0 +1,72 @@
+
+.footer{
+    height: 22rem;
+    width: 100%;
+    background-color: #f8f1e4;
+    color:black;
+}
+
+.infor{
+    display:flex;
+}
+
+.infor > .list{
+    margin: 50px auto auto;
+}
+.infor > .list:last-child{
+    max-width:20%;
+}
+
+.infor > .list .tittle{
+    margin: 0 auto 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.infor .infor__list{
+    padding: 0;
+    list-style: none;
+}
+
+.infor__QuaTang .enter__infor ul{
+    display:flex;
+    margin: 5% 0;
+    list-style: none;
+}
+
+.infor__QuaTang .enter__infor ul input{
+    padding: 10px 10px;
+    border: none;
+    outline: none;
+    width:100%;
+}
+
+.infor__QuaTang .enter__infor ul i{
+    font-size: 20px;
+    padding: 50%;
+
+}
+
+.infor__QuaTang .enter__infor--another ul{
+    display:flex;
+    list-style:none;
+}
+
+.infor__QuaTang .enter__infor--another ul .another{
+    padding: 5px 9px;
+    margin: 0 1%;
+}
+
+.infor__QuaTang .enter__infor--another ul .another:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.infor__QuaTang .enter__infor--another ul li:first-child{
+    margin: auto 0 auto;
+    color: black;
+}
+
+.footer .address{
+    text-align: center;
+}

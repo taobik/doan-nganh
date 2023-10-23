@@ -1,0 +1,163 @@
+.block{
+    margin:0 20%;
+    border: solid 1px #efb84f;
+}
+.block:nth-child(1){
+    display:flex;
+}
+.block:nth-child(2){
+    display:flex;
+}
+.block > .dangnhap{
+    width:60%;
+    padding: 1rem 2rem;
+}
+.block > .dangnhap > .title{
+    font-size: 20px;
+    font-weight: 600;
+}
+.block > .dangnhap > form > .form-group{
+    margin: 1.5rem 0;
+}
+.block > .dangnhap > form > .form-group> .title{
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+.block > .dangnhap > form > .form-group> input{
+    height: 2.5rem;
+    width: 100%;
+    font-weight: 600;
+    padding: 1rem;
+    outline:none;
+    border: solid 1px #e2e2e2;
+}
+.block > .dangnhap > form > input{
+    height: 3rem;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color:#efb84f;
+    border: none;
+    border-radius: 5px;
+}
+.block > .dangnhap > form > input:hover,
+.block > .dangnhap > .other > .link:hover{
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.2s;
+}
+.block > .dangnhap > .cach{
+    position:relative;
+    margin: 1rem 0;
+    text-align: center;
+}
+.block > .dangnhap > .cach:before{
+    content:'';
+    position: absolute;
+    display:block;
+    top:10px;
+    height:1px;
+    width:100%;
+    border-top: solid 1px gray;
+    background-color: gray;
+}
+.block > .dangnhap > .cach > span{
+    position:relative;
+    padding: 0 1rem;
+    background-color:white;
+    z-index:1;
+}
+.block > .dangnhap > .other{
+    display:flex;
+    margin: 1rem 20%;
+}
+.block > .dangnhap > .other{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+}
+.block > .dangnhap > .other > .link{
+    display:flex;
+    height:2.5rem;
+    width:9rem;
+    margin: 0 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+.block > .dangnhap > .other > .fb{
+    background-color: #3b5998;
+}
+.block > .dangnhap > .other > .gg{
+    background-color: #e14b33;
+}
+.block > .dangnhap > .other > .link > i{
+    height:100%;
+    font-size: 20px;
+    color:white;
+    padding: 0.7rem 1rem;
+    border-right: solid 1px white;
+}
+.block > .dangnhap > .other > .link > span{
+    color: white;
+    font-weight:100;
+    padding: 0 1rem;
+}
+
+
+.block > .dangky{
+    width:40%;
+    padding:1rem 1rem;
+    background-color: #efb84f;
+    color:white;
+}
+.block > .dangky > p:nth-child(1){
+    font-size: 20px;
+    font-weight: 600;
+}
+.block > .dangky > p{
+    font-size: 17px;
+    padding:1rem 1rem;
+}
+.block > .dangky > .bt{
+    display:flex;
+    padding:0.5rem 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.block > .dangky > .bt > p{
+    border-radius:7px;
+    color:white;
+    border: solid 1px white;
+    padding: 0.5rem 1rem;
+}
+.block > .dangky > .bt > p:hover{
+    cursor:pointer;
+    background-color:white;
+    color:#efb84f;
+    transition: all 0.3s linear;
+}
+.err{
+    position:fixed;
+    top: 6rem;
+    right: 0;
+    height: 5rem;
+    width: 20rem;
+    margin: 2rem 1rem;
+    border-radius: 10px;
+    box-shadow: -3px 8px 26px 2px #888888;
+    background-color:white;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(120%);
+    transition: 1s;
+}
+.errback{
+    transform: translate(0%);
+}
+
+

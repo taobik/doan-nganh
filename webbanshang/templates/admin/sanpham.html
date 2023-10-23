@@ -1,0 +1,67 @@
+{% extends 'admin/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin/sanpham.css') }}">
+{% endblock %}
+{% block body %}
+<div class="sanpham">
+    <div class="sanpham_title">
+        <p>Sản phẩm</p>
+        <div class="loc">
+            <select class="loai">
+                <option value="">--Loại--</option>
+                {% for i in loai %}
+                <option value="{{ i.Ten }}">{{ i.Ten }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="them">
+            <a href="{{ url_for('admin_add_sanpham') }}">
+                <i class="fa-solid fa-plus"></i>
+            </a>
+        </div>
+    </div>
+    <div class="body">
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Ảnh</th>
+                <th>Giá nhập</th>
+                <th>Giá bán</th>
+                <th>Đã bán</th>
+                <th>Số lượng</th>
+                <th>Tình trạng</th>
+                <th></th>
+            </tr>
+            {% for i in sp %}
+            <tr>
+                <td><p>{{ i.id }}</p></td>
+                <td><p>{{ i.Ten }}</p></td>
+                <td><img src="{{ i.Anh }}" alt=""></td>
+                <td><p>{{ i.GiaNhap }}</p></td>
+                <td><p>{{ i.GiaBan }}</p></td>
+                <td><p>{{ i.DaBan }}</p></td>
+                <td><p>{{ i.SoLuong }}</p></td>
+                {% if i.TinhTrang == True %}
+                <td>
+                    <input class="{{ i.id }}" type="checkbox" checked/>
+                </td>
+                {% else %}
+                <td>
+                    <input class="{{ i.id }}" type="checkbox"/>
+                </td>
+                {% endif %}
+                <td>
+                    <a href="{{ url_for('admin_view_sanpham', id = i.id) }}"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="{{ url_for('admin_edit_sanpham', id = i.id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="{{ url_for('admin_delete_sanpham', id = i.id) }}"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/sanpham.js') }}"></script>
+{% endblock %}}

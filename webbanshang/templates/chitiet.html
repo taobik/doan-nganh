@@ -1,0 +1,254 @@
+{% extends 'layout/base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/chitiet.css') }}">
+<style>
+.err{
+    background-color: {{ color }}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+{% endblock %}
+{% block body %}
+{% if err_msg %}
+<div class="err">
+    <p>{{ err_msg }}</p>
+</div>
+{% endif %}
+<div class="chitiet">
+    <div class="ttgioithieu">
+        <div class="thongtin">
+            <div class="anh">
+                <div class="chinh">
+                    {% for i in anh %}
+                    <img class="anh_chinh" src="{{ i.Anh }}" alt="">
+                    {% endfor %}
+                </div>
+                <div class="phu">
+                    {% for i in anh %}
+                    <div class="anh_phu" style="background-image: url({{  i.Anh }})"></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="coban">
+                {% for i in sp %}
+                <div class="ten">{{ i.Ten }}</div>
+                <div class="thuong_hieu">Thương hiệu: <b>{{ i.ThuongHieu }}</b></div>
+                <div class="gia">{{ i.GiaBan }}</div>
+                <div class="form">
+                    <div class="so_luong">
+                        <div class="tru">
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                        <input name="amout_so" class="so" value="1">
+                        <div class="cong">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="button">
+                        {% if current_user.is_authenticated %}
+                        <a href="#" class="dathang {{ i.id }}">
+                            <div class="them_gio">
+                                <p>Thêm vào giỏ hàng</p>
+                                <p>Cam kết chính hãng / đổi trả 24h</p>
+                            </div>
+                        </a>
+                        <a href="{{ url_for('thongtintaikhoan') }}" class="dathang {{ i.id }}">
+                            <div class="mua_ngay">
+                                <p>Mua Ngay</p>
+                                <p>Thanh toán nhanh chóng</p>
+                            </div>
+                        </a>
+                        {% if tim %}
+                        <div id="tim1" class="thich {{ i.id }}">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        {% else %}
+                        <div id="tim2" class="thich {{ i.id }}">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        {% endif %}
+                        {% else %}
+                        <a href="{{ url_for('dathang_check') }}">
+                            <div class="them_gio">
+                                <p>Thêm vào giỏ hàng</p>
+                                <p>Cam kết chính hãng / đổi trả 24h</p>
+                            </div>
+                        </a>
+                        <a href="{{ url_for('dathang_check') }}">
+                            <div class="mua_ngay">
+                                <p>Mua Ngay</p>
+                                <p>Thanh toán nhanh chóng</p>
+                            </div>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="danhgia">
+            <div class="tabs">
+                <div id="1" class="tab tab_chose">Giới thiệu</div>
+                <div id="2" class="tab">Đánh giá</div>
+            </div>
+            <div class="infor tab_gioithieu tab_active">
+                {% for i in sp %}
+                <p>{{ i.MoTa }}</p>
+                {% endfor %}
+            </div>
+            <div class="infor comment">
+                {% if bl %}
+                {% for i in bl %}
+                <div class="items">
+                    <div class="img" style="background-image:url({{ i.AnhDaiDien }})"></div>
+                    <div class="noi_dung">
+                        <div class="infor">
+                            <div class="name">
+                                <p>{{ i.Ho }} {{ i.Ten }}</p>
+                            </div>
+                            <div class="danh_gia {{ i.DanhGia }} {{ i.id }}">
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                                <span><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <div class="text {{ i.id }}">
+                                <p>{{ i.NoiDung }}</p>
+                            </div>
+                        </div>
+                        <div class="thich">
+                            <div class="thoi_gian">{{ i.NgayTao }}</div>
+<!--                            {% if current_user.id == i.tkid %}-->
+<!--                            <div class="thich_button">-->
+<!--                                <i class="fa-solid fa-thumbs-up"></i>-->
+<!--                                <p>Thích <span></span></p>-->
+<!--                            </div>-->
+<!--                            {% else %}-->
+<!--                            <div class="thich_button">-->
+<!--                                <i class="fa-solid fa-thumbs-up"></i>-->
+<!--                                <p>Thích <span></span></p>-->
+<!--                            </div>-->
+<!--                            {% endif %}-->
+                            {% if current_user.id == i.tkid %}
+                            <div class="sua {{ i.id }}">
+                                <p>Chỉnh sửa</p>
+                            </div>
+                            <div class="xoa {{ i.id }}">
+                                <p>Xóa</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>Sản phẩm chưa có đánh giá</p>
+                {% endif %}
+                <ul class="viet_binhluan">
+                    {% if current_user.is_authenticated %}
+                    <li class="viet_bl">
+                        <a href="#"><p>Viết bình luận</p></a>
+                    </li>
+                    {% else %}
+                    <li class="bl_dn">
+                        <a href="{{ url_for('dangnhap') }}"><p>Đăng nhập để viết bình luận</p></a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+                <div class="o_viet_bl"></div>
+                <div class="infor">
+                    <div class="title">
+                        <p>Viết đánh giá</p>
+                        <div class="img" style="background-image:url({{ anh[0][1] }})"></div>
+                        <p>Đánh giá sản phẩm</p>
+                    </div>
+                    <div class="danh_gia">
+                        <span class="1"><i class="fa-regular fa-star"></i></span>
+                        <span class="2"><i class="fa-regular fa-star"></i></span>
+                        <span class="3"><i class="fa-regular fa-star"></i></span>
+                        <span class="4"><i class="fa-regular fa-star"></i></span>
+                        <span class="5"><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <div class="viet">
+                        <textarea minlength="1" maxlength="250"></textarea>
+                        <div class="dem">
+                            <p><span>0</span>/250</p>
+                        </div>
+                        {% for i in sp %}
+                        <div class="gui {{ i.id }}">
+                            <p>Gửi đánh giá</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ttchitiet">
+        <div class="thongtinkythuat">
+            <div class="title"><p>Thông tin kỹ thuật</p></div>
+            <div class="thongtin">
+                <table>
+                    {% for i in sp %}
+                    <tr>
+                        <td>Màn hình</td>
+                        <td>{{ i.ManHinh }}</td>
+                    </tr>
+                    <tr>
+                        <td>Hệ điều hành</td>
+                        <td>{{ i.HeDieuHanh }}</td>
+                    </tr>
+                    <tr>
+                        <td>Chip</td>
+                        <td>{{ i.Chip }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ram</td>
+                        <td>{{ i.Ram }}</td>
+                    </tr>
+                    <tr>
+                        <td>Dung lượng</td>
+                        <td>{{ i.DungLuong }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="sanphamtuongtu">
+            <div class="title"><p>Sản phẩm tương tự</p></div>
+            <div class="san_pham_list">
+                {% for i in sp_cate %}
+                {% if i[0] != sp[0][0] %}
+                <a class="list" href="{{ url_for('chitiet', id = i.id)}}">
+                    <div class="list_item">
+                        <div class="img" style="background-image: url({{ i.Anh }})"></div>
+                        <div class="thong_tin">
+                            <p class="ten">{{ i.Ten }}</p>
+                            <p class="gia">{{ i.GiaBan }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/chitiet.js') }}"></script>
+{% endblock %}}
